@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<meta charset="UTF-8">
+<title>CHANNELS </title>
+{% endblock %}
+
+
+
+{% block body %}
+    <center style="background:linear-gradient(#0b8c7d, #17a372)">
+    <h1 style="color: white">YOUTUBE ANALYSIS</h1>
+</center>
+<center>
+    <div style="max-width :70%; background : white">
+<h1>Channel List </h1>
+        <table style="padding: 15px; ">
+            <tr>
+                <th style="padding: 10px;">
+                    CHANNEL NAME
+                </th>
+                <th>
+                     TOTAL VIEWS
+                </th >
+                <th style="padding: 10px;">
+                    TOTAL SUBSCRIBER
+                </th>
+                <th style="padding: 10px;">
+                    TOTAL VIDEOS
+                </th>
+            </tr>
+
+        {% for i in var%}
+
+            <div>
+            <tr>
+
+                                <td style="padding: 5px;">
+            <a href="{{i['channel_id']}}">       {{i['Title']}} </a>
+
+                </td>
+
+                                <td>
+                   {{i['viewCount']}}
+
+                </td>
+                                <td>
+                   {{i['subscriberCount']}}
+
+                </td>
+                               <td>
+                   {{i['videoCount']}}
+
+                </td>
+
+            </tr>
+                </div>
+
+
+
+        {%endfor%}
+        </table>
+{% endblock %}

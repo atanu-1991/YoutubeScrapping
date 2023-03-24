@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<meta charset="UTF-8">
+<title>VIDEOS</title>
+{% endblock %}
+
+{% block body %}
+    <center style="background:linear-gradient(#00796B, #00bb7b)">
+    <h1 style="color: white">YOUTUBE ANALYSIS</h1>
+  </center>
+<center>
+    <div style="max-width :70%; background : white">
+    <h1>COMMENT ON VIDEO </h1>
+    <table>
+      <tr>
+        <th>
+          Comment Author
+        </th>
+        <th>
+          COMMENT
+        </th>
+      </tr>
+
+      {% for i in var%}
+
+        <tr>
+          <td style="padding : 5px;">
+            {{i['author_name']}}
+          </td>
+          <td>
+            {{i['Comment_text']}}
+          </td>
+        </tr>
+
+
+      {%endfor%}
+    </table>
+{% endblock %}
