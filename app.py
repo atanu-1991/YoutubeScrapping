@@ -78,7 +78,7 @@ def channel_summary():
     '''
     try:
         channel_summary = get_channel_status(youtube, obj_ytube.channel_id)
-
+        # print(channel_summary)
         channel_coll.insert_one(channel_summary)
         video_ids = get_video_ids(youtube,channel_summary)
         video_details = get_video_details(youtube,video_ids)
@@ -134,8 +134,9 @@ def comments(path):
     '''
     try:
         a = comm_coll.find()
-
+        print("Path",path)
         for i in a:
+            print("Video",i['video_id'])
             if i['video_id'] == path:
 
                 return render_template('comment.html', var=i['comments_id']['comments'])
@@ -158,7 +159,7 @@ def comments(path):
 
     except Exception as e:
         logging.error(e)
-        print(e)
+        # print(e)
         return render_template('error.html')
 
 

@@ -21,7 +21,7 @@ def save_image(video_details):
             img_b64s.append(image)
 
         logging.info(img_b64s)
-        return  img_b64s
+        return img_b64s
 
     except Exception as e:
         logging.error(f'An error occured {e}')

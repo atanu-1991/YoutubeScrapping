@@ -15,8 +15,7 @@ def get_comments(youtube, video_details):
         for item in response['items']:
             comments = dict(
                 Comment_text = item['snippet']['topLevelComment']['snippet']['textDisplay'],
-                author_name = item['snippet']['topLevelComment']['snippet']['authorDisplayName']
-            )
+                author_name = item['snippet']['topLevelComment']['snippet']['authorDisplayName'])
 
             comment.append(comments)
 
@@ -24,8 +23,8 @@ def get_comments(youtube, video_details):
         comm = dict(video_id=id['video_id'], comments=comment)
         comment_table.append(comm)
 
-        logging.info(comment_table)
-        return comment_table
+    logging.info(comment_table)
+    return comment_table
 
 
 if __name__ == '__main__':

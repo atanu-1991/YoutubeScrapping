@@ -47,7 +47,9 @@ def get_vid_details(youtube, video_id):
     try:
         video_data = []
         request = youtube.videos().list(part='snippet,statistics', id=video_id)
+
         response = request.execute()
+
         for i in range(len(response['items'])):
             video_info = dict(
                 video_title = response['items'][i]['snippet']['title'],
@@ -56,8 +58,7 @@ def get_vid_details(youtube, video_id):
                 likecount = int(response['items'][i]['statistics']['likeCount']),
                 commentcount = int(response['items'][i]['statistics']['commentCount']),
                 video_link = 'https://www.youtube.com/watch?v=' + response['items'][i]['id'],
-                video_id = response['items'][i]['id']
-            )
+                video_id = response['items'][i]['id'])
 
             video_data.append(video_info)
 
